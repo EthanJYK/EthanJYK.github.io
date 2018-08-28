@@ -1,0 +1,33 @@
+---
+title: "Tasty Places in My Neighborhood!"
+author: "Junyoung Kim"
+date: "August 28, 2018"
+output: ioslides_presentation
+---
+
+## Tasty Places
+
+```{r, echo=FALSE}
+library(leaflet)
+# take icon URL
+URL <- "https://raw.githubusercontent.com/EthanJYK/EthanJYK.github.io/master/temp/pin_red.png"
+
+# set icon
+icon <- makeIcon(
+    iconUrl = URL, 
+    iconWidth = 22, iconHeight = 31, iconAnchorX = 11, iconAnchorY = 16
+)
+
+# read csv file in working directory
+data <- read.csv("https://raw.githubusercontent.com/EthanJYK/EthanJYK.github.io/master/temp/foods.csv")
+
+# lattitudes and longitudes
+foodslatlong <- data[,1:2]
+
+# names
+foodsnames <- data[,3]
+
+# plot
+foodslatlong %>% leaflet() %>% addTiles() %>% 
+    addMarkers(icon = icon, popup = foodsnames)
+```
