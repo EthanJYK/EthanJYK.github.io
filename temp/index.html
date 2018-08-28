@@ -6978,8 +6978,33 @@ function asArray(value) {
 
 <slide class=""><hgroup><h2>Tasty Places</h2></hgroup><article  id="tasty-places">
 
-<div id="htmlwidget-4816add7e649d2564efe" style="width:720px;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4816add7e649d2564efe">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[37.635007,37.634075,37.636547,37.634249,37.635065,37.631985,37.633723,37.632623,37.634369,37.634747,37.634802,37.638867,37.637154,37.639242,37.640441],[126.931084,126.929118,126.932718,126.929719,126.931167,126.924154,126.918849,126.918892,126.917942,126.919584,126.920115,126.91884,126.918405,126.919213,126.920785],{"iconUrl":{"data":"https://raw.githubusercontent.com/EthanJYK/EthanJYK.github.io/master/temp/pin_red.png","index":0},"iconWidth":22,"iconHeight":31,"iconAnchorX":11,"iconAnchorY":16},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Tratoria Piu (Italian)","Cafe Lato (Coffee and Beverages)","Hanna Bread (Bakery)","Basak (Korean Street Snacks)","Hamjibak (Korean Cuisine)","BBQ (Spicy Chickens)","Beijing Lambs (Chinese Lamb Skewers)","Ye Lai Xiang (Chinese Cuisine)","Baeks Sushi (Sushi)","Imo's (Korean Barbeque)","Miss Saigon (Vietnamese Pho)","Big Dumplings (Dumplings)","Season's Table (Korean Cuisine)","I Love Steak (Steaks)","Chaesundang (Shabu Shabu)"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[37.631985,37.640441],"lng":[126.917942,126.932718]}},"evals":[],"jsHooks":[]}</script></article></slide>
+<div id="htmlwidget-85b5ed59cf3532587945" style="width:720px;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-85b5ed59cf3532587945">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[37.635007,37.634075,37.636547,37.634249,37.635065,37.631985,37.633723,37.632623,37.634369,37.634747,37.634802,37.638867,37.637154,37.639242,37.640441],[126.931084,126.929118,126.932718,126.929719,126.931167,126.924154,126.918849,126.918892,126.917942,126.919584,126.920115,126.91884,126.918405,126.919213,126.920785],{"iconUrl":{"data":"https://raw.githubusercontent.com/EthanJYK/EthanJYK.github.io/master/temp/pin_red.png","index":0},"iconWidth":22,"iconHeight":31,"iconAnchorX":11,"iconAnchorY":16},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Tratoria Piu (Italian)","Cafe Lato (Coffee and Beverages)","Hanna Bread (Bakery)","Basak (Korean Street Snacks)","Hamjibak (Korean Cuisine)","BBQ (Spicy Chickens)","Beijing Lambs (Chinese Lamb Skewers)","Ye Lai Xiang (Chinese Cuisine)","Baeks Sushi (Sushi)","Imo's (Korean Barbeque)","Miss Saigon (Vietnamese Pho)","Big Dumplings (Dumplings)","Season's Table (Korean Cuisine)","I Love Steak (Steaks)","Chaesundang (Shabu Shabu)"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[37.631985,37.640441],"lng":[126.917942,126.932718]}},"evals":[],"jsHooks":[]}</script>
+
+</article></slide><slide class=""><hgroup><h2>Codes</h2></hgroup><article  id="codes">
+
+<pre class = 'prettyprint lang-r'>library(leaflet)
+# take icon URL
+URL &lt;- &quot;https://raw.githubusercontent.com/EthanJYK/EthanJYK.github.io/master/temp/pin_red.png&quot;
+
+# set icon
+icon &lt;- makeIcon(
+    iconUrl = URL, 
+    iconWidth = 22, iconHeight = 31, iconAnchorX = 11, iconAnchorY = 16
+)
+
+# read csv file in working directory
+data &lt;- read.csv(&quot;https://raw.githubusercontent.com/EthanJYK/EthanJYK.github.io/master/temp/foods.csv&quot;)
+
+# lattitudes and longitudes
+foodslatlong &lt;- data[,1:2]
+
+# names
+foodsnames &lt;- data[,3]
+
+# plot
+foodslatlong %&gt;% leaflet() %&gt;% addTiles() %&gt;% 
+    addMarkers(icon = icon, popup = foodsnames)</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
