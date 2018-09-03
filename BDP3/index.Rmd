@@ -1,0 +1,94 @@
+---
+title: "MPG Difference by Auto/Manual"
+author: "Junyoung Kim"
+date: "Septermber 3, 2018"
+output: 
+    ioslides_presentation:
+    widescreen: true
+    smaller: true
+    transition: faster
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly); library(ggplot2); library(gridExtra); library(kableExtra)
+```
+
+## Brief Summary {.smaller}
+- Question: How do transmission types affect on fuel efficiency?
+- Data: 1974 Motor Trend Car Road Tests
+- Model: <b> ln(MPG) = β0 + β1 Transmission + β2 ln(Horsepower) + ε </b>
+<center>
+```{r}
+head(mtcars, 10)
+```
+</center>
+
+## Distribution {.smaller}
+- Distribution of mpg(Miles per Gallon) is right-skewed.
+- Taking log reshapes distribution more normal-like,
+- And it reduces effects of possible outliers. 
+```{r, echo=FALSE, fig.align="center" ,message=FALSE}
+h <- ggplot(mtcars, aes(x=log(mpg))) + geom_histogram(bins=12, color="grey", fill="grey20")
+h1 <- ggplotly(h, autosize = F, width = 500, height = 350) 
+h1
+```
+
+## Linear Fit of Log-Log Model {.smaller}
+- Taking logs on both sides of model linearizes the plot. 
+- And it makes interpreting coefficients easier(percent by percent changes).
+```{r}
+# process
+p <- plot_ly(data = mtcars, x = ~log(hp), y = ~log(mpg), color = I("black")) %>%
+    add_markers(y = ~log(mpg), text = "log(mpg)", showlegend = FALSE) %>%
+    add_lines(y = ~fitted(lm(log(mpg)~log(hp))), line = list(color = '#07A4B5'), name = "Linear") %>%
+    add_lines(y = ~fitted(loess(log(mpg)~log(hp))), line = list(color = 'grey', dash = 'dash', shape = 'spline'), name = "Loess Smoother")
+p
+```
+
+
+## Regression Results {.smaller}
+```{r}
+m1 <- lm(log(mpg)~as.factor(am)+log(hp), data=mtcars)
+t1 <- as.table(round(summary(m1)$coef, 3))
+dimnames(t1) <- list(c("Intercept", "Auto/Manual: 1", "log(Horsepower)"),
+                     c("Coefficient", "Standard Error", "t-value", "p-value"))
+knitr::kable(t1, caption = "Regression Results on log(MPG)") %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+<br> </br>
+
+- Log(horsepower) shows a strong negative relation with log(mpg)(-0.459). 
+
+- Auto/Manual holds a modreate positive coefficient(0.195). 
+
+- Low p-values of both regressors(0.001, 0.000). 
+
+- Log transform: The meaning of coefficient should be interpreted as changes in percent values: **for 1 percent increase of horsepower, mpg decreases approximately by 0.459 percent on average**.
+
+## MPG Difference by Auto/Manual {.smaller}
+- The transmission type(0 or 1) is not log-transformed.
+- Manual transmissions(value = 1) have approximately 19.5%($100 * \beta_1$%) better fuel efficiency on average than automatic transmissions. 
+```{r}
+#---
+mt <- mtcars
+mt$tr <- as.factor(mtcars$am)
+levels(mt$tr) <- c("Auto", "Manual")
+#--- auto
+hp.new <- min(mtcars$hp):max(mtcars$hp) # step1: new x values
+am0 <- rep(0, length(hp.new)) # step2: new x2 values
+data0 <- data.frame(hp.new, am0) # step3: combine x, x2
+colnames(data0) <- c("hp", "am") # step4: make names the same as the model
+y0 <- predict(m1, newdata=data0) # step5: predict y values = model outputs
+#--- manual
+data1 <- data.frame("hp"=hp.new, "am"=rep(1, length(hp.new))) # step2~4 at once
+y1 <- predict(m1, newdata=data1) # step5: predict y values = model outputs
+
+#---
+p <- plot_ly(data =mt, x = ~log(hp), y = ~log(mpg), color = ~tr, colors = c("#56B1F7", "#132B43")) %>%
+    add_markers(y = ~log(mpg), text = "log(mpg)", marker = list(size=10)) %>%
+    add_lines(x = ~log(hp.new), y = ~y0, color = I("gray60"), name = "Auto Fit") %>%
+    add_lines(x = ~log(hp.new), y = ~y1, color = I("black"), name = "Manual Fit")
+p    
+```
+
