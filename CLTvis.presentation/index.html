@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Central Limit Theorem Visualisation</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Central Limit Theorem Visualisation">
+  <meta name="author" content="Junyoung Kim">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+<link rel=stylesheet href="./assets/css/style.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Central Limit Theorem Visualisation</h1>
+    <h2>(Use Arrow Keys to Flip Pages)</h2>
+    <p>Junyoung Kim<br/>September 9, 2018</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Introduction</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p><a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a> is a key concept in the frequentist probability theory: <strong>Even if the original distribution is not normally distributed, the distribution of its sample means tends toward a normal distribution.</strong> The idea itself is very simple, but it is somewhat hard to grasp for statistics learners only with written words and formulas. </p></li>
+<li><p>My web-application, <a href="https://ethanjyk.shinyapps.io/cltvis/">Central Limit Theorem Visualisation</a> shows how central limit theorem works by rendering how plots change as the number of sample means increases. And, it is <strong>SUPER EASY</strong>. </p>
+
+<ul>
+<li>Choose a distribution</li>
+<li>Adjust shapes</li>
+<li>Click buttons to add sample means</li>
+<li class='..'><strong>PROFIT!!</strong></li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s See How It Works</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Here is the overall layout of the app.</li>
+</ul>
+
+<p><img style="float: left;" src="0.png", width=686, height = 495> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s See How It Works: Main Plot panel</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>You can see the <strong>Main Plot</strong> panel on the top left.</li>
+</ul>
+
+<p><img style="float: left;" src="1.png", width=267, height = 446> <br></br></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- Choose a Distribution Type to create a pool of numbers.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- Move slider to adjust skewness.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- Below &quot;Skewness&quot; slider... </p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- The panel shows the mean(mu) and standard deviation(sigma).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s See How It Works: Main Plot panel</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><strong>Main Plot</strong> panel and the plot created using input values.</li>
+</ul>
+
+<p><img style="float: left;" src="2.png", width=750, height = 400></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s See How It Works: Sample Mean Plot panel</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>You can also see the <strong>Sample Mean Plot</strong> panel on the bottom left.</li>
+</ul>
+
+<p><img style="float: left;" src="3.png", width=267, height = 487> <br></br></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- Move slider to adjust the size of each sample(N) out of your pool.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- Click 5 / 100 Button to put additional sample means to the plot.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- Click more and see how the sample mean plot changes. </p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- The plot approximates normal as the number increases.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s See How It Works: Sample Mean Plot panel</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><strong>Sample Mean Plot</strong> panel and the plot created using input values.</li>
+</ul>
+
+<p><img style="float: left;" src="4.png", width=750, height = 400></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Let&#39;s See How It Works: Comparing Results</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>Compare means and standard deviations of two plots.</li>
+</ul>
+
+<p><img style="float: left;" src="5.png", width=315, height = 511> <br></br></p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- With the number of sample means large enough(ex = 9900),</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- the mean of your sample means becomes closer to the μ.</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- and their standard deviation approximates sigma/sqrt(N), </p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- 0.1167 / sqrt(25) = 0.02334 .... very close to 0.02295</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;- <strong>The reality works just as the formula says!</strong></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Links</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p><a href="https://ethanjyk.shinyapps.io/cltvis/">Central Limit Theorem Visualisation</a></p></li>
+<li><p>You can also see the source codes on <a href="https://github.com/EthanJYK/datasciencecoursera/tree/master/9.%20Developing%20Data%20Products/CLTvis">my github repository</a>. </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Introduction'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Let&#39;s See How It Works'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Let&#39;s See How It Works: Main Plot panel'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Let&#39;s See How It Works: Main Plot panel'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Let&#39;s See How It Works: Sample Mean Plot panel'>
+         5
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Let&#39;s See How It Works: Sample Mean Plot panel'>
+         6
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='Let&#39;s See How It Works: Comparing Results'>
+         7
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='Links'>
+         8
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
