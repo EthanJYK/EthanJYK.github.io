@@ -26,7 +26,7 @@ knit        : slidify::knit2slides
 
 --- 
 
-## Let's See How It Works
+## How It Works
 
 - Here is the overall layout of the app.
 
@@ -34,7 +34,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Main Plot
+## How It Works: Main Plot
 
 - You can see the **Main Plot** panel on the top left.
 
@@ -51,7 +51,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Main Plot
+## How It Works: Main Plot
 
 - **Main Plot** panel and the plot created using input values.
 
@@ -60,7 +60,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Sample Mean Plot
+## How It Works: Sample Mean Plot
 
 - You can also see the **Sample Mean Plot** panel on the bottom left.
 
@@ -77,7 +77,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Sample Mean Plot
+## How It Works: Sample Mean Plot
 
 - **Sample Mean Plot** panel and the plot created using input values.
 
@@ -86,7 +86,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Comparing Results
+## How It Works: Comparing Results
 
 - Compare means and standard deviations of two plots.
 
