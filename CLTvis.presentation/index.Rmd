@@ -34,7 +34,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Main Plot panel
+## Let's See How It Works: Main Plot
 
 - You can see the **Main Plot** panel on the top left.
 
@@ -51,7 +51,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Main Plot panel
+## Let's See How It Works: Main Plot
 
 - **Main Plot** panel and the plot created using input values.
 
@@ -60,7 +60,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Sample Mean Plot panel
+## Let's See How It Works: Sample Mean Plot
 
 - You can also see the **Sample Mean Plot** panel on the bottom left.
 
@@ -77,7 +77,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Let's See How It Works: Sample Mean Plot panel
+## Let's See How It Works: Sample Mean Plot
 
 - **Sample Mean Plot** panel and the plot created using input values.
 
