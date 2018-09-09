@@ -181,6 +181,38 @@
 
 <slide class="" id="slide-8" style="background:;">
   <hgroup>
+    <h2>Same Process with R codes</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">pool &lt;- rbeta(10000, 10, 3) - 0.5 # create the original distribution
+sample.mean &lt;- vector()
+N &lt;- 25 # set the size of a sample group 
+# sample 9900 times
+for(i in 1:9900){sample.mean &lt;- c(sample.mean, mean(sample(pool, N)))}
+mean(pool); mean(sample.mean)
+</code></pre>
+
+<pre><code>## [1] 0.2695856
+</code></pre>
+
+<pre><code>## [1] 0.2693847
+</code></pre>
+
+<pre><code class="r">sd(pool); sd(sample.mean)
+</code></pre>
+
+<pre><code>## [1] 0.1133747
+</code></pre>
+
+<pre><code>## [1] 0.02255929
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
     <h2>Links</h2>
   </hgroup>
   <article data-timings="">
@@ -241,8 +273,14 @@
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Links'>
+        data-slide=8 title='Same Process with R codes'>
          8
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Links'>
+         9
       </a>
     </li>
   </ul>
