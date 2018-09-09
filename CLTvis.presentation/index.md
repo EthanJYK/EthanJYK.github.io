@@ -104,7 +104,7 @@ knit        : slidify::knit2slides
 
 ---
 
-## Same Process with R codes
+## An Example Process with R codes
 
 
 ```r
@@ -113,27 +113,23 @@ sample.mean <- vector()
 N <- 25 # set the size of a sample group 
 # sample 9900 times
 for(i in 1:9900){sample.mean <- c(sample.mean, mean(sample(pool, N)))}
-mean(pool); mean(sample.mean)
+mean(pool); mean(sample.mean); sd(pool); sd(sample.mean) # Compare means and sds
 ```
 
 ```
-## [1] 0.2695856
+## [1] 0.2694534
 ```
 
 ```
-## [1] 0.2693847
-```
-
-```r
-sd(pool); sd(sample.mean)
+## [1] 0.2693375
 ```
 
 ```
-## [1] 0.1133747
+## [1] 0.1115225
 ```
 
 ```
-## [1] 0.02255929
+## [1] 0.0221084
 ```
 
 ---

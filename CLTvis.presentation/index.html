@@ -181,7 +181,7 @@
 
 <slide class="" id="slide-8" style="background:;">
   <hgroup>
-    <h2>Same Process with R codes</h2>
+    <h2>An Example Process with R codes</h2>
   </hgroup>
   <article data-timings="">
     <pre><code class="r">pool &lt;- rbeta(10000, 10, 3) - 0.5 # create the original distribution
@@ -189,22 +189,19 @@ sample.mean &lt;- vector()
 N &lt;- 25 # set the size of a sample group 
 # sample 9900 times
 for(i in 1:9900){sample.mean &lt;- c(sample.mean, mean(sample(pool, N)))}
-mean(pool); mean(sample.mean)
+mean(pool); mean(sample.mean); sd(pool); sd(sample.mean) # Compare means and sds
 </code></pre>
 
-<pre><code>## [1] 0.2695856
+<pre><code>## [1] 0.2694534
 </code></pre>
 
-<pre><code>## [1] 0.2693847
+<pre><code>## [1] 0.2693375
 </code></pre>
 
-<pre><code class="r">sd(pool); sd(sample.mean)
+<pre><code>## [1] 0.1115225
 </code></pre>
 
-<pre><code>## [1] 0.1133747
-</code></pre>
-
-<pre><code>## [1] 0.02255929
+<pre><code>## [1] 0.0221084
 </code></pre>
 
   </article>
@@ -273,7 +270,7 @@ mean(pool); mean(sample.mean)
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=8 title='Same Process with R codes'>
+        data-slide=8 title='An Example Process with R codes'>
          8
       </a>
     </li>
