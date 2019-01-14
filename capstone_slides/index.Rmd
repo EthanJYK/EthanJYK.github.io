@@ -27,7 +27,7 @@ knit        : slidify::knit2slides
 
 ## 3. Algorithms: Text Prediction
 
-<img style="float: left;" src="page3.png", width=976, height = 480>
+<img style="float: left;" src="page3.png", width=976, height = 485>
 
 ---
 
